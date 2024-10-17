@@ -9,13 +9,13 @@ class ReglaValidacion(ABC):
             return True
     
     def _contiene_mayuscula(clave:str) ->bool:
-        ...
+        str.issupper(clave)
 
     def _contiene_minuscula(clave:str) ->bool:
-        ...
+        str.islower(clave)
 
     def _contiene_numero(clave:str) ->bool:
-        ...
+        str.isdigit(clave)
 
     @abstractmethod
     def es_valida(clave:str) ->bool:
@@ -30,14 +30,16 @@ class Validador:
 
 class ReglaValidacionGanimedes(ReglaValidacion):
     def contine_caracter_especial(clave: str) ->bool:
-        ...
+        if clave.__contains__('@','_','#','$', '%'):
+            return True
     
     def es_valida(clave: str) -> bool:
         ...
 
 class ReglaValidacionCalisto(ReglaValidacion):
     def contiene_calisto(clave: str) ->bool:
-        ...
+        if clave.__contains__('calisto'):
+            ...
     
     def es_valida(clave: str) -> bool:
         ...
