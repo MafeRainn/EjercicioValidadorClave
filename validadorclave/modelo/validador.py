@@ -9,13 +9,21 @@ class ReglaValidacion(ABC):
             return True
     
     def _contiene_mayuscula(clave:str) ->bool:
-        str.issupper(clave)
+        mayuscula_presente= False
+        for caracter in clave:
+            if caracter.isupper():
+                mayuscula_presente=True
+            return True
+                
+        # str.issupper(clave)
 
     def _contiene_minuscula(clave:str) ->bool:
-        str.islower(clave)
+        ...
+        # str.islower(clave)
 
     def _contiene_numero(clave:str) ->bool:
-        str.isdigit(clave)
+        # str.isdigit(clave)
+        ...
 
     @abstractmethod
     def es_valida(clave:str) ->bool:
