@@ -14,8 +14,6 @@ class ReglaValidacion(ABC):
             if caracter.isupper():
                 mayuscula_presente=True
             return True
-                
-        # str.issupper(clave)
 
     def _contiene_minuscula(clave:str) ->bool:
         ...
@@ -38,7 +36,9 @@ class Validador:
 
 class ReglaValidacionGanimedes(ReglaValidacion):
     def contine_caracter_especial(clave: str) ->bool:
-        if clave.__contains__('@','_','#','$', '%'):
+        caracteres = ['@', '#', '_', '$', '%']
+
+        if any(caracteres) in clave:
             return True
     
     def es_valida(clave: str) -> bool:
