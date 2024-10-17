@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from errores import ValidadorError, NoCumpleLongitudMinimaError, NoTieneCaracterEspecialError,NoTieneLetraMayusculaError,NoTieneLetraMinusculaError,NoTieneNumeroError,NoTienePalabraSecretaError
 
 class ReglaValidacion(ABC):
     def __init__(self, longitud_esperada: int):
@@ -7,9 +8,9 @@ class ReglaValidacion(ABC):
     def _validar_longitud(self,clave:str) ->bool:
         if len(clave) > self.longitud_esperada:
             return True
+        else: False
     
     def _contiene_mayuscula(clave:str) ->bool:
-        mayuscula_presente= False
         for caracter in clave:
             if caracter.isupper():  
                 return True
@@ -32,7 +33,7 @@ class ReglaValidacion(ABC):
 
     @abstractmethod
     def es_valida(clave:str) ->bool:
-        ...
+        pass
 
 class Validador:
     def __init__(self, regla:ReglaValidacion):
